@@ -1,0 +1,7 @@
+
+Page 6 : JAVA is a Pass by Value programming language 
+Page 8 :  
+Titles unchanged after swap: Java passes references by value, so the method 
+swaps only local copies, leaving the original references outside unchanged. 
+Title changed after changeTitle: The method modifies the object's state directly 
+via setTitle, affecting the actual object referenced by jungleDVD. 
