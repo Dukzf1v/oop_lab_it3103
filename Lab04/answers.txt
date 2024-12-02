@@ -1,0 +1,22 @@
+*)Which classes are aggregates of others?
+Cart is an aggregate of Media.
+CompactDisc is an aggregate of Track.
+
+*)What happens if the passed object is not an instance of Media?
+If the object passed is not an instance of the Media class, when the equals() method in the Media class is called, you need to check the type of the object before performing the comparison. Specifically, in the equals() method, you can use instanceof to check whether the object is an instance of the Media class. If it is not, the method should return false, as two objects cannot be compared if they are not of the same type.
+
+*)Instead of using Comparator, can we use the Comparable interface and override the compareTo() method?
+Yes, you can use the Comparable interface by implementing it in the class and overriding the compareTo() method.
+
+*)Which classes should implement the Comparable interface?
+The Comparable interface should be implemented in the Media class and its subclasses, such as Book, CompactDisc, and DigitalVideoDisc.
+
+*)How to implement the compareTo() method in the classes?
+The compareTo() method in the Comparable interface requires you to define how the current object should be compared with another object. For example, you can compare objects based on specific attributes like title or price.
+
+*)Can there be two sorting rules (e.g., by title then by price, and by price then by title) using the Comparable interface?
+No, you cannot have two sorting rules simultaneously in the compareTo() method because it allows only one comparison rule at a time. To implement multiple sorting rules, you would need to use separate Comparator classes, such as MediaComparatorByTitleCost and MediaComparatorByCostTitle, which can be passed to methods like Collections.sort().
+However, if you want to enable multiple sorting options using Comparable, you could add a parameter in the Media class to determine the sorting preference or create separate compareTo() methods in subclasses. Alternatively, you could combine Comparable with Comparator for greater flexibility.
+
+*)A DVD has a distinct sorting rule compared to other media types (i.e., by title, then by descending length, and then by price). How can the source code be changed to support this?
+To support this, you can override the compareTo() method specifically in the DigitalVideoDisc class (or its subclass). This overridden method would define the unique sorting rule for DVDs: compare by title first, then by descending length, and finally by price.
