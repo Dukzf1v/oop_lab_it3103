@@ -1,0 +1,1 @@
+If exceptions are not handled in the play() method, when an error occurs, the program will encounter issues and may stop or not function properly. The exception will not be caught, and the program will either terminate or behave unexpectedly. Failing to handle exceptions can cause the application to freeze or close abruptly.
